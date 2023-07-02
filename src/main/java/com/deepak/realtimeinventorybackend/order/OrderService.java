@@ -19,7 +19,7 @@ public class OrderService {
         order.setOrderTime(java.time.Instant.now());
         order.setTableNumber(orderCreateDto.getTableNumber());
 
-        Order saveOrder = orderRepository.save(order);
+        orderRepository.save(order);
     }
 
     public OrderResponseDto getOrderResponseDto(Order saveOrder) {

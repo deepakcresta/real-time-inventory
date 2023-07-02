@@ -18,4 +18,6 @@ public class Order {
     private Long quantity;
     private Instant orderTime;
     private String orderType;
+
+
 }
