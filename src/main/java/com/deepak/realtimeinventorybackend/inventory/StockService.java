@@ -2,12 +2,7 @@ package com.deepak.realtimeinventorybackend.inventory;
 
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -27,6 +22,11 @@ public class StockService {
         stock.setQuantity(stockCreateDto.getQuantity());
         stock.setCreateAt(java.time.Instant.now());
         stock.setModifiedAt(java.time.Instant.now());
+        stock.setQuantityUnit(stockCreateDto.getQuantityUnit());
+        stock.setManufacturingDate(stockCreateDto.getManufacturingDate());
+        stock.setExpiryDate(stockCreateDto.getExpiryDate());
+        stock.setBrandName(stockCreateDto.getBrandName());
+
 
 
         Stock savedStock = stockRepository.save(stock);
@@ -45,11 +45,12 @@ public class StockService {
         responseDto.setStockName(savedStock.getStockName());
         responseDto.setCategory(savedStock.getCategory());
         responseDto.setQuantity(savedStock.getQuantity());
-        responseDto.setExpiryDate(String.valueOf(Instant.now()));
-        responseDto.setManufacturingDat(savedStock.getManufacturingDat());
+        responseDto.setExpiryDate(savedStock.getExpiryDate());
+        responseDto.setManufacturingDate(savedStock.getManufacturingDate());
         responseDto.setBrandName(savedStock.getBrandName());
-        responseDto.setCreateAt(savedStock.getCreateAt());
         responseDto.setCreateAt(java.time.Instant.now());
+        responseDto.setModifiedAt(java.time.Instant.now());
+        responseDto.setQuantityUnit(savedStock.getQuantityUnit());
         return responseDto;
     }
 
@@ -74,8 +75,28 @@ public class StockService {
         }
         return null;
     }
+
+    public Stock update(Long id, StockUpdateDto stockCreateDto) {
+        Optional<Stock> optional = stockRepository.findById(id);
+        if (optional.isPresent()) {
+            Stock stock = optional.get();
+            stock.setBrandName(stockCreateDto.getBrandName());
+            stock.setCategory(stockCreateDto.getCategory());
+            stock.setStockName(stockCreateDto.getStockName());
+            stock.setQuantity(stockCreateDto.getQuantity());
+            stock.setExpiryDate(stockCreateDto.getExpiryDate());
+            stock.setManufacturingDate(stockCreateDto.getManufacturingDate());
+            stock.setModifiedAt(java.time.Instant.now());
+            stock.setQuantityUnit(stockCreateDto.getQuantityUnit());
+            return stockRepository.save(stock);
+        }
+        return null;
+    }
+
+
+
     @Transactional
-    public  void deleteStock(Long id){
+    public void deleteStock(Long id) {
         stockRepository.deleteById(id);
     }
 

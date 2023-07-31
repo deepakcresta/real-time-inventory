@@ -15,7 +15,8 @@ public class StockResponseDto {
     private Instant createAt;
     private Instant modifiedAt;
     private String expiryDate;
-    private String manufacturingDat;
+    private String manufacturingDate;
     private String brandName;
+    private String quantityUnit;
 
 }

@@ -11,5 +11,8 @@ public class MenuResponseDto {
     private Instant createdDate;
     private Instant modifiedDate;
     private String menuType;
+//    private String credentialName;
+//    private  Long quantity;
+//    private String  unit;
 }
 

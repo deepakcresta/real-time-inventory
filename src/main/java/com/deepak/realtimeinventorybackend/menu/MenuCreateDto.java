@@ -3,6 +3,7 @@ package com.deepak.realtimeinventorybackend.menu;
 import lombok.Data;
 
 import java.time.Instant;
+import java.util.List;
 
 @Data
 public class MenuCreateDto {
@@ -11,4 +12,7 @@ public class MenuCreateDto {
     private Instant createdDate;
     private Instant modifiedDate;
     private String menuType;
+    private String credentialName;
+    private  Long quantity;
+//    private List<MenuCredentialDto> menuCredentials;
 }

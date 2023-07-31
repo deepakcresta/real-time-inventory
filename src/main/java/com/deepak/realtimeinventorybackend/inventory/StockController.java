@@ -33,8 +33,14 @@ public class StockController {
     }
     @DeleteMapping("/{id}")
     @ResponseStatus(code =  HttpStatus.NO_CONTENT)
-    public void deleteStock(@PathVariable("is")Long id){
+    public void deleteStock(@PathVariable("id")Long id){
         stockService.deleteStock(id);
+    }
+    //Updating the stock
+    @PostMapping("/{id}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public  Stock update(@PathVariable Long id, @RequestBody StockUpdateDto request){
+        return stockService.update(id, request);
     }
 
 }

@@ -18,9 +18,10 @@ public class Stock {
     private String category;
     private Instant createAt;
     private Instant modifiedAt;
-    private Instant expiryDate;
-    private String manufacturingDat;
+    private String expiryDate;
+    private String manufacturingDate;
     private String brandName;
+    private  String quantityUnit;
 
 
 }
