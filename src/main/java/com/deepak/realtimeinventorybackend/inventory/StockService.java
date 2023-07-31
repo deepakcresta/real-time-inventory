@@ -45,7 +45,7 @@ public class StockService {
         responseDto.setStockName(savedStock.getStockName());
         responseDto.setCategory(savedStock.getCategory());
         responseDto.setQuantity(savedStock.getQuantity());
-        responseDto.setExpiryDate(savedStock.getExpiryDate());
+        responseDto.setExpiryDate(String.valueOf(Instant.now()));
         responseDto.setManufacturingDat(savedStock.getManufacturingDat());
         responseDto.setBrandName(savedStock.getBrandName());
         responseDto.setCreateAt(savedStock.getCreateAt());
