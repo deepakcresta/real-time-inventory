@@ -12,7 +12,7 @@ public class MenuCreateDto {
     private Instant createdDate;
     private Instant modifiedDate;
     private String menuType;
-    private String credentialName;
-    private  Long quantity;
+//    private String credentialName;
+//    private  Long quantity;
 //    private List<MenuCredentialDto> menuCredentials;
 }

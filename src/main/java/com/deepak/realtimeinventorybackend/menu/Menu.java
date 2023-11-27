@@ -13,6 +13,7 @@ public class Menu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String menuName;
+    private String menuType;
     private Instant createdDate;
     private Instant modifiedDate;
 

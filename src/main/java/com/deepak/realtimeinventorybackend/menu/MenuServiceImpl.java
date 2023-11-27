@@ -19,7 +19,7 @@ public class MenuServiceImpl implements MenuService {
 //        menu.setMenuType(menuCreateDto.getMenuName());
         menu.setCreatedDate(java.time.Instant.now());
         menu.setModifiedDate(java.time.Instant.now());
-//        menu.setMenuType(menuCreateDto.getMenuType());
+        menu.setMenuType(menuCreateDto.getMenuType());
 //        menu.setQuantity(menuCreateDto.getQuantity());
 //        menu.setUnit(menuCreateDto.getUnit());
         Menu saveMenu = menuRepository.save(menu);
@@ -31,7 +31,7 @@ public class MenuServiceImpl implements MenuService {
         response.setMenuName(savedMenu.getMenuName());
         response.setCreatedDate(java.time.Instant.now());
         response.setModifiedDate(java.time.Instant.now());
-//        response.setMenuType(savedMenu.getMenuType());
+        response.setMenuType(savedMenu.getMenuType());
 //        response.setUnit(savedMenu.getUnit());
 //        response.setQuantity(savedMenu.getQuantity());
 //        response.setCredentialName(savedMenu.getCredentialName());
